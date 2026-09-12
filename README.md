@@ -44,13 +44,98 @@ Baixe a **Stock ROM da Índia (INS)** correspondente ao **SM-A366E**.
 
 Baixe o Odin:
 
-🔗 [Odin3 v3.13.3](https://samfw.com/Odin/Odin3_v3.13.3.zip)
+🔗 [Odin3 v3.13.3 — SamFW](https://samfw.com/Odin/Odin3_v3.13.3.zip)
 
-Extraia o arquivo e faça o flash da firmware INS no dispositivo.
+Extraia o arquivo do Odin e também o `.zip` da firmware INS.
 
-> ⚠️ **Atenção:** o processo de instalação da firmware pode apagar os dados do aparelho. Tenha seu backup pronto antes de continuar.
+#### 2.1 Entre no Modo de Manutenção
 
-Depois que o flash terminar, configure o aparelho normalmente.
+Antes de entrar no Download Mode, o dispositivo precisa estar **desligado e em Modo de Manutenção**.
+
+Para entrar no Modo de Manutenção:
+
+1. Abra **Configurações**.
+2. Acesse **Assistência do aparelho**.
+3. Procure pela opção **Modo de Manutenção**.
+4. Ative o **Modo de Manutenção**.
+5. Aguarde o processo terminar.
+6. Certifique-se de que o aparelho esteja desligado antes de continuar.
+
+#### 2.2 Entre no Download Mode
+
+Com o dispositivo desligado:
+
+1. Segure **Volume + e Volume - simultaneamente**.
+2. Enquanto mantém os dois botões pressionados, conecte o cabo USB ao computador.
+3. O dispositivo deverá entrar no **Download Mode**.
+4. Confirme a entrada no Download Mode quando solicitado pelo aparelho.
+
+> ⚠️ **Não desconecte o cabo USB durante o processo de flash.**
+
+---
+
+#### 2.3 Abra o Odin
+
+Abra o **Odin** no computador.
+
+Quando o dispositivo for reconhecido, o Odin deverá mostrar uma porta indicando que o aparelho foi conectado.
+
+Agora extraia a firmware INS.
+
+Dentro dela estarão os arquivos necessários para o flash.
+
+No Odin, selecione os arquivos correspondentes:
+
+| Campo no Odin | Arquivo                      |
+| ------------- | ---------------------------- |
+| **BL**        | Arquivo que começa com `BL_` |
+| **AP**        | Arquivo que começa com `AP_` |
+| **CP**        | Arquivo que começa com `CP_` |
+| **CSC**       | Arquivo `CSC_ODM_`           |
+
+> 🚨 **IMPORTANTE:** No campo **CSC**, selecione o arquivo **`CSC_ODM`** e **NÃO** selecione o `HOME_CSC_ODM`.
+
+O `CSC_ODM` será utilizado para realizar uma instalação limpa da firmware e, consequentemente, **apagar os dados do dispositivo**.
+
+O `HOME_CSC_ODM` **não deve ser utilizado neste tutorial**.
+
+---
+
+#### 2.4 Inicie o flash
+
+Antes de iniciar, confira novamente:
+
+* **BL** → `BL_...`
+* **AP** → `AP_...`
+* **CP** → `CP_...`
+* **CSC** → `CSC_ODM_...`
+
+Certifique-se de que todos os arquivos pertencem à **mesma firmware INS**.
+
+Depois:
+
+1. Confirme que o Odin reconheceu o dispositivo.
+2. Confirme que o campo **CSC** está usando `CSC_ODM`.
+3. Clique em **Start**.
+4. Aguarde o processo terminar.
+
+> ⚠️ **NÃO desconecte o cabo USB durante o flash.**
+>
+> ⚠️ **NÃO desligue o computador.**
+>
+> ⚠️ **NÃO tente mexer no aparelho enquanto o Odin estiver realizando o processo.**
+
+Quando o processo terminar, o Odin deverá mostrar:
+
+```text
+PASS!
+```
+
+O dispositivo será reiniciado automaticamente.
+
+Depois que o aparelho iniciar, faça a configuração inicial normalmente.
+
+> 💾 Como foi utilizado o `CSC_ODM` em vez do `HOME_CSC_ODM`, o dispositivo será formatado. É normal que os dados anteriores não estejam mais presentes.
 
 ---
 
@@ -196,13 +281,98 @@ Download the **India (INS) Stock ROM** corresponding to the **SM-A366E**.
 
 Download Odin:
 
-🔗 [Odin3 v3.13.3](https://samfw.com/Odin/Odin3_v3.13.3.zip)
+🔗 [Odin3 v3.13.3 — SamFW](https://samfw.com/Odin/Odin3_v3.13.3.zip)
 
-Extract the file and flash the INS firmware onto the device.
+Extract the Odin file and the INS firmware `.zip`.
 
-> ⚠️ **Warning:** The firmware installation process may erase the device. Make sure you have a backup before continuing.
+#### 2.1 Enter Maintenance Mode
 
-After the flash is complete, set up the device normally.
+Before entering Download Mode, the device needs to be **powered off and in Maintenance Mode**.
+
+To enter Maintenance Mode:
+
+1. Open **Settings**.
+2. Go to **Device care**.
+3. Look for the **Maintenance Mode** option.
+4. Enable **Maintenance Mode**.
+5. Wait for the process to finish.
+6. Make sure the device is powered off before continuing.
+
+#### 2.2 Enter Download Mode
+
+With the device powered off:
+
+1. Hold **Volume Up and Volume Down simultaneously**.
+2. While holding both buttons, connect the USB cable to the computer.
+3. The device should enter **Download Mode**.
+4. Confirm entering Download Mode when prompted by the device.
+
+> ⚠️ **Do not disconnect the USB cable during the flashing process.**
+
+---
+
+#### 2.3 Open Odin
+
+Open **Odin** on your computer.
+
+Once the device is detected, Odin should display a port indicating that the device has been connected.
+
+Now extract the INS firmware.
+
+Inside the firmware package you will find the files required for flashing.
+
+Select the corresponding files in Odin:
+
+| Odin field | File                     |
+| ---------- | ------------------------ |
+| **BL**     | File starting with `BL_` |
+| **AP**     | File starting with `AP_` |
+| **CP**     | File starting with `CP_` |
+| **CSC**    | `CSC_ODM_` file          |
+
+> 🚨 **IMPORTANT:** In the **CSC** field, select the **`CSC_ODM`** file and **DO NOT** select `HOME_CSC_ODM`.
+
+`CSC_ODM` is used to perform a clean firmware installation and will therefore **erase the device data**.
+
+`HOME_CSC_ODM` **should not be used in this tutorial**.
+
+---
+
+#### 2.4 Start the flash
+
+Before starting, check everything again:
+
+* **BL** → `BL_...`
+* **AP** → `AP_...`
+* **CP** → `CP_...`
+* **CSC** → `CSC_ODM_...`
+
+Make sure all files belong to the **same INS firmware**.
+
+Then:
+
+1. Confirm that Odin has detected the device.
+2. Confirm that the **CSC** field is using `CSC_ODM`.
+3. Click **Start**.
+4. Wait for the process to finish.
+
+> ⚠️ **DO NOT disconnect the USB cable during the flash.**
+>
+> ⚠️ **DO NOT turn off the computer.**
+>
+> ⚠️ **DO NOT interfere with the device while Odin is flashing.**
+
+When the process is complete, Odin should display:
+
+```text
+PASS!
+```
+
+The device will reboot automatically.
+
+After the device starts, complete the initial setup normally.
+
+> 💾 Since `CSC_ODM` was used instead of `HOME_CSC_ODM`, the device will be factory reset. It is normal for your previous data to be gone.
 
 ---
 
